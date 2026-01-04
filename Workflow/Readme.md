@@ -14,9 +14,11 @@ Run the following SQL code in the Supabase SQL Editor:
 # code:
 
 -- Enable the pgvector extension to work with embedding vectors
+
 create extension vector;
 
 -- Create a table to store your documents
+
 create table documents (
   id bigserial primary key,
   content text, -- corresponds to Document.pageContent
@@ -25,6 +27,7 @@ create table documents (
 );
 
 -- Create a function to search for documents
+
 create function match_documents (
   query_embedding extensions.vector(1536),
   match_count int default null,
